@@ -1,15 +1,16 @@
-package com.rzdp.mathoperationservice;
+package com.rzdp.mathcomputationservice;
 
 import brave.sampler.Sampler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class MathOperationServiceApplication {
+public class MathComputationServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MathOperationServiceApplication.class, args);
+        SpringApplication.run(MathComputationServiceApplication.class, args);
     }
 
     @Bean
@@ -17,4 +18,8 @@ public class MathOperationServiceApplication {
         return Sampler.ALWAYS_SAMPLE;
     }
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }
